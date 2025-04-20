@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="University_app.Views.Subject_Management"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
+
+
+
+    <Grid>
+     
+
+        <!-- Sidebar -->
+     
+        <!-- Main Content -->
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Program Dropdown -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Program:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="ProgramComboBox"
+                          DisplayMemberPath="Name"
+                          SelectionChanged="ProgramComboBox_SelectionChanged"
+                          Width="200"/>
+            </StackPanel>
+
+            <!-- Level Dropdown -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1">
+                <TextBlock Text="Level:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="LevelComboBox"
+                          DisplayMemberPath="Name"
+                          SelectionChanged="LevelComboBox_SelectionChanged"
+                          Width="200"/>
+            </StackPanel>
+
+            <!-- Data Grid -->
+            <DataGrid x:Name="SubjectsDataGrid"
+                      Grid.Row="2"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      SelectionChanged="SubjectsDataGrid_SelectionChanged"
+                      IsReadOnly="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Coefficient" Binding="{Binding Coefficient}" Width="100"/>
+                    <DataGridTextColumn Header="Semester" Binding="{Binding Semester}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,10">
+                <Button Content="Add Subject" Click="AddUpdateSubjectButton_Click" Width="150" Margin="0,0,10,0"/>
+                <Button Content="Update" Click="UpdateSubjectButton_Click" Width="150"/>
+                <Button Content="Delete" Click="DeleteSubjectButton_Click" Width="150" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

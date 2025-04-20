@@ -1,0 +1,87 @@
+﻿<Window x:Class="University_app.Views.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:University_app.Views"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="400" Width="500">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Add Student"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Left"
+                   Margin="158,2,0,19"/>
+
+        <!-- Form -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+            <!-- Program -->
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="Program:" Width="100" VerticalAlignment="Center"/>
+                <ComboBox x:Name="ProgramComboBox"
+                          DisplayMemberPath="Name"
+                          SelectionChanged="ProgramComboBox_SelectionChanged"
+                          SelectedItem="{Binding select, Mode=TwoWay}"
+                          Width="250"/>
+            </DockPanel>
+
+            <!-- Level -->
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="Level:" Width="100" VerticalAlignment="Center"/>
+                <ComboBox x:Name="LevelComboBox"
+                          DisplayMemberPath="Name"
+
+                          SelectionChanged="LevelComboBox_SelectionChanged"
+                          SelectedItem="{Binding _student_management.SelectedProgram, Mode=TwoWay}"
+
+
+                          Width="250"/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="Cin ID:" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="CinIDTextBox" Width="250"
+/>
+            </DockPanel>
+            <!-- First Name -->
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="First Name:" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="FirstNameTextBox" Width="250"
+/>
+            </DockPanel>
+
+            <!-- Last Name -->
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="Last Name:" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="LastNameTextBox" Width="250"/>
+            </DockPanel>
+
+            <!-- Email -->
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Text="Email:" Width="100" VerticalAlignment="Center"/>
+                <TextBox x:Name="EmailTextBox" Width="250"/>
+            </DockPanel>
+        </StackPanel>
+
+        <!-- Save Button -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Save"
+                    Click="SaveButton_Click"
+
+                    Width="100"
+                    Padding="5"
+                    Background="#4CAF50"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderBrush="#388E3C"
+                    BorderThickness="1"
+                    Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>
