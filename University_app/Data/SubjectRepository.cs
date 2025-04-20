@@ -23,20 +23,34 @@ namespace University_app.Data
         }
 
 
-        public void RemoveSubject(Subject subject)
-        { 
+        public bool RemoveSubject(Subject subject)
+        {
 
 
-            _context.Subjects.Remove(subject);
-            _context.SaveChanges();
-
+            try
+            {
+                _context.Subjects.Remove(subject);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void UpdateSubject(Subject subject)
+        public bool UpdateSubject(Subject subject)
         {
-            _context.Subjects.Update(subject);
-            _context.SaveChanges(); 
-
+            try
+            {
+                _context.Subjects.Update(subject);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
         }
 
