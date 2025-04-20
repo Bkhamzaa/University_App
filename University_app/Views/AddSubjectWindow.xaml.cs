@@ -83,6 +83,8 @@ namespace University_app.Views
 
                 };
             _subject_management.AddSubject(subject);
+            MessageBox.Show("Subject ADD successfully.", "ADD", MessageBoxButton.OK, MessageBoxImage.Information);
+
             this.DialogResult = true;
             this.Close();
 

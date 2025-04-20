@@ -2,11 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:viewModels="clr-namespace:University_app.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1000">
 
-
+    <UserControl.DataContext>
+        <viewModels:Subject_Management />
+    </UserControl.DataContext>
 
     <Grid>
      
@@ -22,26 +24,30 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Program Dropdown -->
+            <!-- Filters Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Program:" VerticalAlignment="Center" Margin="0,0,10,0"/>
                 <ComboBox x:Name="ProgramComboBox"
-                          DisplayMemberPath="Name"
-                          SelectionChanged="ProgramComboBox_SelectionChanged"
-                          Width="200"/>
+                  Width="200"
+                  ItemsSource="{Binding Programs}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedProgram, Mode=TwoWay}" />
             </StackPanel>
 
             <!-- Level Dropdown -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1">
                 <TextBlock Text="Level:" VerticalAlignment="Center" Margin="0,0,10,0"/>
                 <ComboBox x:Name="LevelComboBox"
-                          DisplayMemberPath="Name"
-                          SelectionChanged="LevelComboBox_SelectionChanged"
-                          Width="200"/>
+                  Width="200"
+                  ItemsSource="{Binding Levels}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedLevel, Mode=TwoWay}" />
             </StackPanel>
 
             <!-- Data Grid -->
             <DataGrid x:Name="SubjectsDataGrid"
+                      ItemsSource="{Binding Subjects}"
+
                       Grid.Row="2"
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
