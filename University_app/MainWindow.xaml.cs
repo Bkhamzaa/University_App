@@ -22,13 +22,17 @@ namespace University_app
     public partial class MainWindow : Window
     {
         public static MainWindow Instance { get; private set; }
+        public string UserRole { get; private set; }
 
-        public MainWindow()
+        public MainWindow(string role)
         {
             InitializeComponent();
             Instance = this;
+            UserRole = role;
+            ApplyRolePermissions();
 
-            MainContentControl.Content = new Dashboard();
+            MainContentControl.Content = new Views.Dashboard();
+            
 
         }
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
@@ -53,6 +57,15 @@ namespace University_app
         private void ImportStudentButton_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+        private void ApplyRolePermissions()
+        {
+            if (UserRole == "Registrar")
+            {
+                SubjectManagementButton.Visibility = Visibility.Collapsed;
+                ExamManagementButton.Visibility = Visibility.Collapsed;
+            }
+            // Admin can see everything by default
         }
 
 

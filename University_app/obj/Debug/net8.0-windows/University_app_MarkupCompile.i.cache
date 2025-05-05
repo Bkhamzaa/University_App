@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Hamza\Desktop\University_app\University_app\obj\Debug\net8.0-windows\
+C:\Users\Hamza\Documents\GitHub\University_App\University_app\obj\Debug\net8.0-windows\
 University_app
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\Hamza\Desktop\University_app\University_app\App.xaml
-7-1620451295
+C:\Users\Hamza\Documents\GitHub\University_App\University_app\App.xaml
+8-1433131355
 
-29394785363
-2291505250600
-MainWindow.xaml;Views\AddStudentWindow.xaml;Views\AddSubjectWindow.xaml;Views\Dashboard.xaml;Views\ExamManagement.xaml;Views\StudentManagement.xaml;Views\Subject_Management.xaml;
+34-1972271997
+2291262243209
+MainWindow.xaml;Views\AddStudentWindow.xaml;Views\AddSubjectWindow.xaml;Views\Dashboard.xaml;Views\ExamManagement.xaml;Views\LoginWindow.xaml;Views\StudentManagement.xaml;Views\Subject_Management.xaml;
 
-False
+True
 

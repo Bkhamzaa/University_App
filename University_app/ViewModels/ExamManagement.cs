@@ -12,6 +12,8 @@ using University_app.Data;
 using University_app.Models;
 using System.Net;
 using System.Net.Mail;
+using CsvHelper.Configuration;
+using University_app.Models.map;
 
 namespace University_app.ViewModels
 {
@@ -235,24 +237,39 @@ namespace University_app.ViewModels
         {
             try
             {
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    HeaderValidated = null,  
+                    MissingFieldFound = null 
+                };
+
                 using var reader = new StreamReader(filePath);
-                using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var Exams= csv.GetRecords<Exam>().ToList(); 
+                using var csv = new CsvReader(reader, config);
 
-                foreach (var exam in Exams)
-                {   if (exam != null) {
+                
+                csv.Context.RegisterClassMap<ExamMap>();
 
-                    _examRepository.AddExam(exam);
+                
+                var exams = csv.GetRecords<Exam>().ToList();
 
+                
+                foreach (var exam in exams)
+                {
+                    if (exam != null)
+                    {
+                        
+                        _examRepository.AddExam(exam);
                     }
-
                 }
 
-                FilterStudents();  
-                 MessageBox.Show("Students imported successfully!");
+                
+                FilterStudents();
+
+                MessageBox.Show("Students imported successfully!");
             }
             catch (Exception ex)
             {
+                
                 MessageBox.Show($"Error importing Exam: {ex.Message}");
             }
         }

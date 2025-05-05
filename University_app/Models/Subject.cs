@@ -9,7 +9,7 @@ namespace University_app.Models
     public class Subject
     {
 
-        public Guid Id { get; set; } = Guid.NewGuid();  // GUID as Primary Key
+        public Guid Id { get; set; } = Guid.NewGuid();  
         public string Name { get; set; }
         public float Coefficient { get; set; }
         public string Semester { get; set; }
@@ -20,12 +20,6 @@ namespace University_app.Models
 
 
         public Subject() { }
-        public Subject(string name, float coefficient, string semester, Guid levelId)
-        {
-            Name = name;
-            Coefficient = coefficient;
-            Semester = semester;
-            LevelId = levelId;
-        }
+       
     }
 }

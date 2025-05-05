@@ -77,7 +77,7 @@ namespace University_app.ViewModels
                 _selectedProgram = value;
                 OnPropertyChanged(nameof(SelectedProgram));
                 LoadLevelsForProgram();
-                FilterSubjects();  // Filter students when selected program changes
+                FilterSubjects();  // Filter Subjects when selected program changes
             }
         }
         // Selected Level
@@ -89,7 +89,7 @@ namespace University_app.ViewModels
             {
                 _selectedLevel = value;
                 OnPropertyChanged(nameof(SelectedLevel));
-                FilterSubjects();  // Filter students when selected level changes
+                FilterSubjects();  
             }
         }
 
@@ -155,9 +155,9 @@ namespace University_app.ViewModels
             if (success)
             {
                 Subjects.Remove(subject); // Update UI
-                return "Student deleted successfully.";
+                return "Subject deleted successfully.";
             }
-            return "Error deleting student.";
+            return "Error deleting Subject.";
            
 
 

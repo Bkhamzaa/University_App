@@ -49,16 +49,21 @@
                            Foreground="White"
                            Margin="10"/>
 
-                <Button Content="🏠 Dashboard"
+                <Button 
+                        Content="🏠 Dashboard"
                         Click="DashboardButton_Click"
                         Style="{StaticResource SidebarButtonStyle}"/>
-                <Button Content="📚 Subject Management"
+                <Button Content=
+                        "📚 Subject Management"
+                        x:Name="SubjectManagementButton"
                         Click="SubjectManagementButton_Click"
                         Style="{StaticResource SidebarButtonStyle}"/>
                 <Button Content="📝Exam Management"
+                        x:Name="ExamManagementButton"
                         Click="ExamManagementButton_Click"
                         Style="{StaticResource SidebarButtonStyle}"/>
-                <Button Content="🧑‍🎓Student Management"
+                <Button x:Name="StudentManagementButton"
+                        Content="🧑‍🎓Student Management"
                         Click="StudentManagementButton_Click"
                         Style="{StaticResource SidebarButtonStyle}"/>
 

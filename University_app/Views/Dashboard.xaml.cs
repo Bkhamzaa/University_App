@@ -24,7 +24,7 @@ namespace University_app.Views
         public Dashboard()
         {
             InitializeComponent();
-            DataContext = new DashboardViewModel(); // <- Make sure this line is here
+            DataContext = new DashboardViewModel(); 
 
         }
     }
