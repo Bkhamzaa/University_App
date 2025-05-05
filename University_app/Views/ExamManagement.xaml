@@ -41,7 +41,7 @@
 
 
         <StackPanel Orientation="Horizontal" Margin="10,0,319,320" Grid.Row="2">
-            <TextBlock Text="Level:" VerticalAlignment="Top" Margin="0,0,10,0"/>
+            <TextBlock Text="Subject:" VerticalAlignment="Top" Margin="0,0,10,0"/>
             <ComboBox x:Name="SubjectComboBox"
                Width="200"
   ItemsSource="{Binding Subjects}"

@@ -80,7 +80,7 @@ namespace University_app.Views
 
             Student student = new() { 
             FirstName = FirstNameTextBox.Text, LastName = LastNameTextBox.Text, Email = EmailTextBox.Text,ProgramId= pro.Id,LevelId= level.Id
-            ,Cin_id= CinIDTextBox.Text
+            ,CinId= CinIDTextBox.Text
             };
 
             _student_management.AddStudent(student);

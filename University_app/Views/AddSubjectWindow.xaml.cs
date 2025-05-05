@@ -76,8 +76,8 @@ namespace University_app.Views
             Level level = LevelComboBox.SelectedItem as Level;
                 Subject subject = new Subject
                 { Name = NameTextBox.Text,
-                    Coefficient = double.Parse(CoefficientTextBox.Text, CultureInfo.InvariantCulture),
-                    Semester = int.Parse(SemesterTextBox.Text),
+                    Coefficient = float.Parse(CoefficientTextBox.Text, CultureInfo.InvariantCulture),
+                    Semester = SemesterTextBox.Text,
                 LevelId= level.Id
 
 

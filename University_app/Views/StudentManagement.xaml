@@ -75,7 +75,7 @@
                  
                   Margin="0,10,0,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Cin Id" Binding="{Binding Cin_id}" />
+                <DataGridTextColumn Header="Cin Id" Binding="{Binding CinId}" />
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" />

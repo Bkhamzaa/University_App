@@ -47,12 +47,12 @@ namespace University_app.ViewModels
             get
             {
                 var top = Students
-                    .Join(Exams, s => s.Cin_id, e => e.CinId, (s, e) => new { s, e })
+                    .Join(Exams, s => s.CinId, e => e.CinId, (s, e) => new { s, e })
                     .GroupBy(x => x.s)
                     .Select(g => new
                     {
                         Student = g.Key,
-                        AvgScore = g.Average(x => ((x.e.Ds ?? 0) + (x.e.finalExam ?? 0)) / 2)
+                        AvgScore = g.Average(x => ((x.e.DS ?? 0) + (x.e.FinalExam ?? 0)) / 2)
                     })
                     .OrderByDescending(x => x.AvgScore)
                     .FirstOrDefault();
@@ -124,7 +124,7 @@ namespace University_app.ViewModels
 
         public string AverageScore =>
     Exams.Count > 0
-        ? $"📈 Avg Score: {Exams.Average(e => ((e.Ds ?? 0) + (e.finalExam ?? 0)) / 2):F2}"
+        ? $"📈 Avg Score: {Exams.Average(e => ((e.DS ?? 0) + (e.FinalExam ?? 0)) / 2):F2}"
         : "📈 Avg Score: N/A";
 
         public string PassRate
@@ -133,7 +133,7 @@ namespace University_app.ViewModels
             {
                 if (Exams.Count == 0) return "✅ Pass Rate: N/A";
 
-                int passed = Exams.Count(e => ((e.Ds ?? 0) + (e.finalExam ?? 0)) / 2 >= 10);
+                int passed = Exams.Count(e => ((e.DS ?? 0) + (e.FinalExam ?? 0)) / 2 >= 10);
                 return $"✅ Pass Rate: {((double)passed / Exams.Count * 100):F1}%";
             }
         }
@@ -144,7 +144,7 @@ namespace University_app.ViewModels
             {
                 if (Exams.Count == 0) return "❌ Fail Rate: N/A";
 
-                int failed = Exams.Count(e => ((e.Ds ?? 0) + (e.finalExam ?? 0)) / 2 < 10);
+                int failed = Exams.Count(e => ((e.DS ?? 0) + (e.FinalExam ?? 0)) / 2 < 10);
                 return $"❌ Fail Rate: {((double)failed / Exams.Count * 100):F1}%";
             }
         }

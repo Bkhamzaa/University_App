@@ -65,9 +65,6 @@
             </StackPanel>
 
         </Border>
-        <Button Content=" 📥 Import Student"
-Click="ImportStudentButton_Click"
-Style="{StaticResource SidebarButtonStyle}" RenderTransformOrigin="0.491,0.482" Margin="28,390,28,147"/>
 
         <!-- Main Content -->
         <ContentControl x:Name="MainContentControl" Grid.Column="1"/>

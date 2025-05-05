@@ -207,19 +207,19 @@ namespace University_app.ViewModels
         {
             
                 var studentExams = from exam in _examRepository.GetAllExam()
-                               join student in Students on exam.CinId equals student.Cin_id 
-                               join subject in _subjectRepository.GetAllSubject() on exam.IdSubject equals subject.Id
+                               join student in Students on exam.CinId equals student.CinId 
+                               join subject in _subjectRepository.GetAllSubject() on exam.SubjectId equals subject.Id
                       
                                 
 
                                select new StudentExamDTO
                                {
-                                   CinId = student.Cin_id,
+                                   CinId = student.CinId,
                                    FirstName = student.FirstName,
                                    LastName = student.LastName,
                                    SubjectName = subject.Name,
-                                   Ds = exam.Ds,
-                                   Exam = exam.finalExam,
+                                   Ds = exam.DS,
+                                   Exam = exam.FinalExam,
                                    Email = student.Email
                                };
 
